@@ -20,7 +20,7 @@
    自分のID、今何回目か、現在までの点数、過去の手の配列
    を渡している。
 */
-int play(int ID, int n,int SC[2] , int *H);
+int play(int ID, int n,int SCT[2][2],int SC[2] , int *H);
 
 int main(void)
 {
@@ -98,7 +98,7 @@ int main(void)
     recv(sockfd,H,2*N*sizeof(int),0);  
     
     // 今回の手(0 or 1)を決める　（ここを作成する）
-    nexthand = play(ID,T,SC,H);
+    nexthand = play(ID,T,SCT,SC,H);
     
     // 決めた手を送る
     send(sockfd,&nexthand,sizeof(nexthand),0);
@@ -118,7 +118,7 @@ int main(void)
 
 
 
-int play(int ID,int N,int SC[2] , int *H)
+int play(int ID,int N,int SCT[2][2],int SC[2] , int *H)
 {
   int  t,i,j;
 
