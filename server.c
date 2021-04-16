@@ -30,7 +30,7 @@ int main(void)
   struct sockaddr_un server_address ;
   struct sockaddr_un client_address[2] ;
   char ch[2] ={0,1} ;
-  const int SCT[2][2]={{5,10},{0,2}};
+  const int SCT[2][2]={{5,0},{10,2}};
   int *h; //int h[2][N];
   int sc[2]={0,0};
   FILE *LOG;
