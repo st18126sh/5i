@@ -11,7 +11,8 @@
 #define OID (id^1) /* ‘Šè‚Ìid */
 #define CLIENT_0 "client_0"
 #define CLIENT_1 "client_1"
-
+const int SCT[2][2]={{5,0},{10,2}};
+  
 /*
  int sct[2][2]:“_”•\
  			©•ª		‘Šè
@@ -40,7 +41,6 @@ int main(void){
   int i,j,k,t,n = N,rh[2],er ;
   char c_name[2][255];
   int server_len , client_len[2] ;
-  const int SCT[2][2]={{5,0},{10,2}};
   int *h; //int h[2][N];
   int sc[2]={0,0};
   FILE *LOG;
