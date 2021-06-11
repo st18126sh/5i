@@ -73,6 +73,8 @@ int main(void){
     
     fprintf(LOG,"      %s : %s .\n",CLIENT_A,CLIENT_B);
     fprintf(LOG,"score  %d : %d . %d\n",sc[0],sc[1],sc[0]+sc[1]);
+    printf("      %s : %s .\n",CLIENT_A,CLIENT_B);
+    printf("score  %d : %d . %d\n",sc[0],sc[1],sc[0]+sc[1]);
     fprintf(stderr,"\n THE END\n");
 
     fclose(LOG);
