@@ -110,7 +110,6 @@ int play_1(int ID,int n,int SC[2] , int *H)
   if(ID == 1){
     t = (rand()>>1) & 1;
   }
-
   return t;
 }
 
