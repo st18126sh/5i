@@ -9,10 +9,9 @@
 
 #define N 50 /* 試行回数 */
 #define OID (id^1) /* 相手のid */
-#define CLIENT_0 "client_0"
-#define CLIENT_1 "client_1"
-const int SCT[2][2]={{5,0},{10,2}};
-  
+#define CLIENT_A "client_a"
+#define CLIENT_B "client_b"
+
 /*
  int sct[2][2]:点数表
  			自分		相手
@@ -33,9 +32,10 @@ const int SCT[2][2]={{5,0},{10,2}};
    自分のID、今何回目か、現在までの点数、過去の手の配列
    を渡している。
 */
-int play_0(int ID, int n,int SC[2] , int *H);
-int play_1(int ID, int n,int SC[2] , int *H);
+int play_A(int ID, int n,int SC[2] , int *H);
+int play_B(int ID, int n,int SC[2] , int *H);
 
+const int SCT[2][2]={{5,0},{10,2}};
 
 int main(void){
   int i,j,k,t,n = N,rh[2],er ;
@@ -57,8 +57,8 @@ int main(void){
 
 /////////////////////////////////////////
     for(j=0;j<n;j++){
-		rh[0]=play_0(0, j, sc, h);
-		rh[1]=play_1(1, j, sc, h);
+		rh[0]=play_A(0, j, sc, h);
+		rh[1]=play_B(1, j, sc, h);
     	
 		for(k=0;k<2;k++){
 			*(h+(2*j)+k)=rh[k];
@@ -83,7 +83,7 @@ int main(void){
 
 
 
-int play_0(int ID,int n,int SC[2] , int *H)
+int play_A(int ID,int n,int SC[2] , int *H)
 {
   int  t,i,j;
   
@@ -99,7 +99,7 @@ int play_0(int ID,int n,int SC[2] , int *H)
 }
 
 
-int play_1(int ID,int n,int SC[2] , int *H)
+int play_B(int ID,int n,int SC[2] , int *H)
 {
   int  t,i,j;
   
@@ -110,6 +110,7 @@ int play_1(int ID,int n,int SC[2] , int *H)
   if(ID == 1){
     t = (rand()>>1) & 1;
   }
+
   return t;
 }
 
