@@ -71,9 +71,9 @@ int main(void){
 			sc[0],sc[1]);
     }  
     
-    fprintf(LOG,"      %s : %s .\n",CLIENT_A,CLIENT_B);
+    fprintf(LOG,"      %s : %s .\n",CLIENT_0,CLIENT_1);
     fprintf(LOG,"score  %d : %d . %d\n",sc[0],sc[1],sc[0]+sc[1]);
-    printf("      %s : %s .\n",CLIENT_A,CLIENT_B);
+    printf("      %s : %s .\n",CLIENT_0,CLIENT_1);
     printf("score  %d : %d . %d\n",sc[0],sc[1],sc[0]+sc[1]);
     fprintf(stderr,"\n THE END\n");
 
