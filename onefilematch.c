@@ -49,8 +49,8 @@ int main(void){
   LOG=fopen("log_tai","w");
 
   setbuf(stderr,NULL);
-  
-  // Initialize  
+
+  // Initialize
   srand((unsigned int)time(NULL));
 
   //calloc
@@ -60,7 +60,7 @@ int main(void){
     for(j=0;j<n;j++){
 		rh[0]=play_0(0, j, sc, h);
 		rh[1]=play_1(1, j, sc, h);
-    	
+
 		for(k=0;k<2;k++){
 			*(h+(2*j)+k)=rh[k];
 			sc[k] += SCT[rh[k]][rh[k^1]];
@@ -70,8 +70,8 @@ int main(void){
 			*(h+(2*j)),*(h+(2*j)+1),
 			SCT[*(h+(2*j))][*(h+(2*j)+1)],SCT[*(h+(2*j)+1)][*(h+(2*j))],
 			sc[0],sc[1]);
-    }  
-    
+    }
+
     fprintf(LOG,"      %s : %s .\n",CLIENT_0,CLIENT_1);
     fprintf(LOG,"score  %d : %d . %d\n",sc[0],sc[1],sc[0]+sc[1]);
     printf("      %s : %s .\n",CLIENT_0,CLIENT_1);
@@ -79,18 +79,18 @@ int main(void){
     fprintf(stderr,"\n THE END\n");
 
     fclose(LOG);
-    return 0;  
+    return 0;
 }
 
 
 int play_0(int ID,int n,int SC[2] , int *H)
 {
   int  t,i,j;
-  
+
   if(ID == 0){
     t = rand() & 1;
   }
-  
+
   if(ID == 1){
     t = (rand()>>1) & 1;
   }
@@ -101,15 +101,14 @@ int play_0(int ID,int n,int SC[2] , int *H)
 int play_1(int ID,int n,int SC[2] , int *H)
 {
   int  t,i,j;
-  
+
   if(ID == 0){
     t = rand() & 1;
   }
-  
+
   if(ID == 1){
     t = (rand()>>1) & 1;
   }
 
   return t;
 }
-
