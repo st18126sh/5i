@@ -3,38 +3,37 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <stdio.h>
-#include <sys/un.h>
 #include <unistd.h>
 #include <string.h>
 
-#define N 50 /* s‰ñ” */
-#define OID (id^1) /* ‘Šè‚Ìid */
-#define CLIENT_0 "ID0" /* –¼‘O */
+#define N 50 /* è©¦è¡Œå›æ•° */
+#define OID (id^1) /* ç›¸æ‰‹ã®id */
+#define CLIENT_0 "ID0" /* åå‰ */
 #define CLIENT_1 "ID1"
 
 /*
- int sct[2][2]:“_”•\
- 			©•ª		‘Šè
- 	[0][0]F	‹¦’²		‹¦’²
- 	[0][1]F	‹¦’²		— Ø‚è
- 	[1][0]F	— Ø‚è		‹¦’²
- 	[1][1]F	— Ø‚è		— Ø‚è
- int *h:‰ß‹‚Ìè
-        *(h+2*i+ID):i‰ñ–Ú‚ÌID‚Ìè
- int sc[2]:“_”
- 	sc[ID]:ID‚Ì“_
+ int sct[2][2]:ç‚¹æ•°è¡¨
+ 			è‡ªåˆ†		ç›¸æ‰‹
+ 	[0][0]ï¼š	å”èª¿		å”èª¿
+ 	[0][1]ï¼š	å”èª¿		è£åˆ‡ã‚Š
+ 	[1][0]ï¼š	è£åˆ‡ã‚Š		å”èª¿
+ 	[1][1]ï¼š	è£åˆ‡ã‚Š		è£åˆ‡ã‚Š
+ int *h:éå»ã®æ‰‹
+        *(h+2*i+ID):iå›ç›®ã®IDã®æ‰‹
+ int sc[2]:ç‚¹æ•°
+ 	sc[ID]:IDã®ç‚¹
 */
 
 /*
-   Ÿ‚Ìè‚ğŒvZ‚·‚éŠÖ”‚Ìƒvƒƒgƒ^ƒCƒvéŒ¾
-   –¼‘O‚Í‰½‚Å‚à‚æ‚¢Bˆø”‚à•K—v‚É‰‚¶‚Ä•Ï‚¦‚é‚±‚Æ
-   ‚±‚Ì—á‚Å‚Í
-   ©•ª‚ÌIDA¡‰½‰ñ–Ú‚©AŒ»İ‚Ü‚Å‚Ì“_”A‰ß‹‚Ìè‚Ì”z—ñ
-   ‚ğ“n‚µ‚Ä‚¢‚éB
+   æ¬¡ã®æ‰‹ã‚’è¨ˆç®—ã™ã‚‹é–¢æ•°ã®ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
+   åå‰ã¯ä½•ã§ã‚‚ã‚ˆã„ã€‚å¼•æ•°ã‚‚å¿…è¦ã«å¿œã˜ã¦å¤‰ãˆã‚‹ã“ã¨
+   ã“ã®ä¾‹ã§ã¯
+   è‡ªåˆ†ã®IDã€ä»Šä½•å›ç›®ã‹ã€ç¾åœ¨ã¾ã§ã®ç‚¹æ•°ã€éå»ã®æ‰‹ã®é…åˆ—
+   ã‚’æ¸¡ã—ã¦ã„ã‚‹ã€‚
 */
-int play_0(int ID, int n,int SC[2] , int *H);/*ID0‚ÌŠÖ”*/
-int play_1(int ID, int n,int SC[2] , int *H);/*ID1‚ÌŠÖ”*/
-const int SCT[2][2]={{5,0},{10,2}}; /*“_”•\*/
+int play_0(int ID, int n,int SC[2] , int *H);/*ID0ã®é–¢æ•°*/
+int play_1(int ID, int n,int SC[2] , int *H);/*ID1ã®é–¢æ•°*/
+const int SCT[2][2]={{5,0},{10,2}}; /*ç‚¹æ•°è¡¨*/
 
 int main(void){
   int i,j,k,t,n = N,rh[2] ;
@@ -48,7 +47,7 @@ int main(void){
 
   setbuf(stderr,NULL);
   
-  // —”‚ğg‚¢‚½‚¢‚É”õ‚¦‚Ä‰Šú‰»  
+  // ä¹±æ•°ã‚’ä½¿ã„ãŸã„æ™‚ã«å‚™ãˆã¦åˆæœŸåŒ–  
   //  srand((unsigned int)time(NULL));
     srand((unsigned int)19720117L);
 
@@ -81,7 +80,7 @@ int main(void){
 /////////////////////////////////////////
 /////////////////////////////////////////
 
-int play_0(int ID,int n,int SC[2] , int *H)/*ID0‚ÌŠÖ”*/
+int play_0(int ID,int n,int SC[2] , int *H)/*ID0ã®é–¢æ•°*/
 {
   int  t,i,j;
   
@@ -96,7 +95,7 @@ int play_0(int ID,int n,int SC[2] , int *H)/*ID0‚ÌŠÖ”*/
   return t;
 }
 
-int play_1(int ID,int n,int SC[2] , int *H)/*ID1‚ÌŠÖ”*/
+int play_1(int ID,int n,int SC[2] , int *H)/*ID1ã®é–¢æ•°*/
 {
   int  t,i,j;
   
