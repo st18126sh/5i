@@ -75,6 +75,7 @@ int main(void){
     fprintf(stderr,"\n THE END\n");
 
     fclose(LOG);
+    free(h);
     return 0;  
 }
 /////////////////////////////////////////
